@@ -111,6 +111,7 @@ class MyApp extends StatelessWidget {
     final bodyLargeTextStyleCubit = BodyLargeTextStyleCubit();
     final bodyMediumTextStyleCubit = BodyMediumTextStyleCubit();
     final bodySmallTextStyleCubit = BodySmallTextStyleCubit();
+    final bodyExtraLargeTextStyleCubit = BodyExtraLargeTextStyleCubit();
 
     final textThemeCubit = TextThemeCubit(
       displayLargeTextStyleCubit: displayLargeTextStyleCubit,
@@ -128,6 +129,7 @@ class MyApp extends StatelessWidget {
       bodyLargeTextStyleCubit: bodyLargeTextStyleCubit,
       bodyMediumTextStyleCubit: bodyMediumTextStyleCubit,
       bodySmallTextStyleCubit: bodySmallTextStyleCubit,
+      bodyExtraLargeTextStyleCubit: bodyExtraLargeTextStyleCubit,
     );
 
     final advancedThemeCubit = AdvancedThemeCubit(
@@ -203,6 +205,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(create: (_) => bodyLargeTextStyleCubit),
           BlocProvider(create: (_) => bodyMediumTextStyleCubit),
           BlocProvider(create: (_) => bodySmallTextStyleCubit),
+          BlocProvider(create: (_) => bodyExtraLargeTextStyleCubit),
         ],
         child: const _MaterialApp(),
       ),

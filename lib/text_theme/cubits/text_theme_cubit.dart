@@ -24,6 +24,7 @@ class TextThemeCubit extends Cubit<TextThemeState> {
     required this.bodyLargeTextStyleCubit,
     required this.bodyMediumTextStyleCubit,
     required this.bodySmallTextStyleCubit,
+    required this.bodyExtraLargeTextStyleCubit,
   }) : super(const TextThemeState());
 
   final DisplayLargeTextStyleCubit displayLargeTextStyleCubit;
@@ -45,6 +46,7 @@ class TextThemeCubit extends Cubit<TextThemeState> {
   final BodyLargeTextStyleCubit bodyLargeTextStyleCubit;
   final BodyMediumTextStyleCubit bodyMediumTextStyleCubit;
   final BodySmallTextStyleCubit bodySmallTextStyleCubit;
+  final BodyExtraLargeTextStyleCubit bodyExtraLargeTextStyleCubit;
 
   void themeBrightnessChanged(bool isDark) {
     displayLargeTextStyleCubit.styleBrightnessChanged(isDark);
@@ -66,6 +68,7 @@ class TextThemeCubit extends Cubit<TextThemeState> {
     bodyLargeTextStyleCubit.styleBrightnessChanged(isDark);
     bodyMediumTextStyleCubit.styleBrightnessChanged(isDark);
     bodySmallTextStyleCubit.styleBrightnessChanged(isDark);
+    bodyExtraLargeTextStyleCubit.styleBrightnessChanged(isDark);
   }
 
   void themeChanged(TextTheme theme) {
@@ -88,6 +91,7 @@ class TextThemeCubit extends Cubit<TextThemeState> {
     bodyLargeTextStyleCubit.styleChanged(theme.bodyLarge);
     bodyMediumTextStyleCubit.styleChanged(theme.bodyMedium);
     bodySmallTextStyleCubit.styleChanged(theme.bodySmall);
+    bodyExtraLargeTextStyleCubit.styleChanged(theme.bodyLarge);
   }
 
   void fontFamilyChanged(FontData data) {

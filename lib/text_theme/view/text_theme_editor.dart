@@ -38,6 +38,7 @@ class TextThemeEditor extends ExpansionPanelItem {
             BodyLargeTextStyleEditor(),
             BodyMediumTextStyleEditor(),
             BodySmallTextStyleEditor(),
+            BodyExtraLargeTextStyleEditor(),
           ],
         ),
       ],
@@ -163,4 +164,12 @@ class BodySmallTextStyleEditor
 
   @override
   String get header => 'Body small';
+}
+
+class BodyExtraLargeTextStyleEditor
+    extends AbstractTextStyleEditor<BodyExtraLargeTextStyleCubit> {
+  const BodyExtraLargeTextStyleEditor({super.key});
+
+  @override
+  String get header => 'Body extra large';
 }

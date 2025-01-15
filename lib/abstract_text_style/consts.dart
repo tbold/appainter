@@ -16,6 +16,7 @@ enum TypeScale {
   bodyLarge,
   bodyMedium,
   bodySmall,
+  bodyExtraLarge,
 }
 
 const _englishTextTheme = Typography.englishLike2018;
@@ -42,6 +43,7 @@ final kBlackTextStyles = {
   TypeScale.bodyLarge: _blackTextTheme.bodyLarge,
   TypeScale.bodyMedium: _blackTextTheme.bodyMedium,
   TypeScale.bodySmall: _blackTextTheme.bodySmall,
+  TypeScale.bodyExtraLarge: _blackTextTheme.bodyLarge!.copyWith(fontSize: 24.0),
 };
 
 final kWhiteTextStyles = {
@@ -60,4 +62,5 @@ final kWhiteTextStyles = {
   TypeScale.bodyLarge: _whiteTextTheme.bodyLarge,
   TypeScale.bodyMedium: _whiteTextTheme.bodyMedium,
   TypeScale.bodySmall: _whiteTextTheme.bodySmall,
+  TypeScale.bodyExtraLarge: _whiteTextTheme.bodyLarge!.copyWith(fontSize: 24.0),
 };

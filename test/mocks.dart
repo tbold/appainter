@@ -162,6 +162,8 @@ class MockBodyMediumTextStyleCubit extends MockCubit<TextStyleState>
 
 class MockBodySmallTextStyleCubit extends MockCubit<TextStyleState>
     implements BodySmallTextStyleCubit {}
+class MockBodyExtraLargeTextStyleCubit extends MockCubit<TextStyleState>
+    implements BodyExtraLargeTextStyleCubit {}
 
 mixin DiagnosticableToStringMixin on Object {
   @override

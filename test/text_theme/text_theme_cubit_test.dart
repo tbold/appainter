@@ -30,6 +30,7 @@ void main() {
   late BodyLargeTextStyleCubit bodyLargeTextStyleCubit;
   late BodyMediumTextStyleCubit bodyMediumTextStyleCubit;
   late BodySmallTextStyleCubit bodySmallTextStyleCubit;
+  late BodyExtraLargeTextStyleCubit bodyExtraLargeTextStyleCubit;
 
   setUp(() {
     textTheme = ThemeData().textTheme;
@@ -53,6 +54,7 @@ void main() {
     bodyLargeTextStyleCubit = MockBodyLargeTextStyleCubit();
     bodyMediumTextStyleCubit = MockBodyMediumTextStyleCubit();
     bodySmallTextStyleCubit = MockBodySmallTextStyleCubit();
+    bodyExtraLargeTextStyleCubit = MockBodyExtraLargeTextStyleCubit();
 
     textThemeCubit = TextThemeCubit(
       displayLargeTextStyleCubit: displayLargeTextStyleCubit,
@@ -70,6 +72,7 @@ void main() {
       bodyLargeTextStyleCubit: bodyLargeTextStyleCubit,
       bodyMediumTextStyleCubit: bodyMediumTextStyleCubit,
       bodySmallTextStyleCubit: bodySmallTextStyleCubit,
+      bodyExtraLargeTextStyleCubit: bodyExtraLargeTextStyleCubit
     );
   });
 

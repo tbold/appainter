@@ -59,3 +59,7 @@ class BodyMediumTextStyleCubit extends AbstractTextStyleCubit {
 class BodySmallTextStyleCubit extends AbstractTextStyleCubit {
   BodySmallTextStyleCubit() : super(typeScale: TypeScale.bodySmall);
 }
+
+class BodyExtraLargeTextStyleCubit extends AbstractTextStyleCubit {
+  BodyExtraLargeTextStyleCubit() : super(typeScale: TypeScale.bodyExtraLarge);
+}
