@@ -84,19 +84,6 @@ class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
     textThemeCubit.themeChanged(theme.textTheme);
   }
 
-  void themeRandomized([int? seed]) {
-    final colorScheme = randomColorScheme(
-      seed: seed ?? DateTime.now().millisecondsSinceEpoch,
-      isDark: state.isDark,
-      shouldPrint: false,
-    );
-    final theme = ThemeData.localize(
-      ThemeData.from(colorScheme: colorScheme),
-      Typography.englishLike2018,
-    );
-    themeChanged(theme);
-  }
-
   void themeReset() {
     final theme = ThemeData.localize(
       _getDefaultTheme(),
@@ -111,5 +98,31 @@ class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
 
   ThemeData _getDefaultTheme({bool? isDark}) {
     return isDark ?? state.isDark ? ThemeData.dark() : ThemeData.light();
+  }
+
+  void setRandomColorTheme() {
+    final randomColorScheme = randomColorSchemeGenerator();
+    final theme = ThemeData(
+      colorScheme: randomColorScheme,
+      primaryColor: randomColorScheme.primary,
+      primaryColorLight: randomColorScheme.primaryVariant,
+      primaryColorDark: randomColorScheme.primaryVariant,
+      canvasColor: randomColorScheme.surface,
+      cardColor: randomColorScheme.surface,
+      dialogBackgroundColor: randomColorScheme.surface,
+      disabledColor: randomColorScheme.onSurface.withOpacity(0.38),
+      dividerColor: randomColorScheme.onSurface.withOpacity(0.12),
+      focusColor: randomColorScheme.primary,
+      highlightColor: randomColorScheme.primary.withOpacity(0.12),
+      hintColor: randomColorScheme.onSurface.withOpacity(0.38),
+      hoverColor: randomColorScheme.primary.withOpacity(0.04),
+      indicatorColor: randomColorScheme.primary,
+      scaffoldBackgroundColor: randomColorScheme.background,
+      secondaryHeaderColor: randomColorScheme.secondary,
+      shadowColor: randomColorScheme.shadow,
+      splashColor: randomColorScheme.primary.withOpacity(0.12),
+      unselectedWidgetColor: randomColorScheme.onSurface.withOpacity(0.38),
+    );
+    themeChanged(theme);
   }
 }

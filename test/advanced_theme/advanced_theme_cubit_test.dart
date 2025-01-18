@@ -160,29 +160,6 @@ void main() {
     }
   });
 
-  group('test random theme', () {
-    for (var isDark in [true, false]) {
-      blocTest<AdvancedThemeCubit, AdvancedThemeState>(
-        'should emit random theme with isDark=$isDark',
-        setUp: () {
-          final colorScheme = randomColorScheme(
-            seed: seed,
-            isDark: isDark,
-            shouldPrint: false,
-          );
-          theme = ThemeData.localize(
-            ThemeData.from(colorScheme: colorScheme),
-            Typography.englishLike2018,
-          );
-        },
-        build: () => advancedThemeCubit,
-        seed: () => AdvancedThemeState(isDark: isDark),
-        act: (cubit) => cubit.themeRandomized(seed),
-        verify: (cubit) => verifyThemeChanged(theme),
-      );
-    }
-  });
-
   group('test default theme', () {
     for (var isDark in [true, false]) {
       blocTest<AdvancedThemeCubit, AdvancedThemeState>(

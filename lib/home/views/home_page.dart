@@ -80,6 +80,12 @@ class HomePageState extends State<HomePage> {
         const HorizontalPadding(size: PaddingSize.medium),
         const GithubButton(key: Key('homePage_githubButton')),
         const HorizontalPadding(),
+        IconButton(
+          icon: Icon(Icons.shuffle),
+          onPressed: () {
+            print('randomizer tapped');
+          },
+        ),
       ],
     );
   }
@@ -262,7 +268,6 @@ class _EditModeActions extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Row(
       children: [
-        RandomThemeButton(),
         HorizontalPadding(),
         ResetThemeButton(),
       ],
