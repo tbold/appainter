@@ -83,7 +83,7 @@ class HomePageState extends State<HomePage> {
         IconButton(
           icon: Icon(Icons.shuffle),
           onPressed: () {
-            print('randomizer tapped');
+            context.read<AdvancedThemeCubit>().randomizeTheme();
           },
         ),
       ],

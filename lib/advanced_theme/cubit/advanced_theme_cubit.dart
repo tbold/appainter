@@ -1,9 +1,12 @@
+import 'dart:math';
+
 import 'package:appainter/app_bar_theme/app_bar_theme.dart';
 import 'package:appainter/bottom_navigation_bar_theme/bottom_navigation_bar_theme.dart';
 import 'package:appainter/button_theme/button_theme.dart';
 import 'package:appainter/checkbox_theme/checkbox_theme.dart';
 import 'package:appainter/color_theme/color_theme.dart';
 import 'package:appainter/floating_action_button_theme/floating_action_button_theme.dart';
+import 'package:appainter/font/font_repository.dart';
 import 'package:appainter/icon_theme/icon_theme.dart';
 import 'package:appainter/input_decoration_theme/input_decoration_theme.dart';
 import 'package:appainter/radio_theme/radio_theme.dart';
@@ -15,6 +18,7 @@ import 'package:bloc/bloc.dart';
 import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:random_color_scheme/random_color_scheme.dart';
 
 part 'advanced_theme_cubit.g.dart';
@@ -100,29 +104,27 @@ class AdvancedThemeCubit extends Cubit<AdvancedThemeState> {
     return isDark ?? state.isDark ? ThemeData.dark() : ThemeData.light();
   }
 
-  void setRandomColorTheme() {
-    final randomColorScheme = randomColorSchemeGenerator();
-    final theme = ThemeData(
-      colorScheme: randomColorScheme,
-      primaryColor: randomColorScheme.primary,
-      primaryColorLight: randomColorScheme.primaryVariant,
-      primaryColorDark: randomColorScheme.primaryVariant,
-      canvasColor: randomColorScheme.surface,
-      cardColor: randomColorScheme.surface,
-      dialogBackgroundColor: randomColorScheme.surface,
-      disabledColor: randomColorScheme.onSurface.withOpacity(0.38),
-      dividerColor: randomColorScheme.onSurface.withOpacity(0.12),
-      focusColor: randomColorScheme.primary,
-      highlightColor: randomColorScheme.primary.withOpacity(0.12),
-      hintColor: randomColorScheme.onSurface.withOpacity(0.38),
-      hoverColor: randomColorScheme.primary.withOpacity(0.04),
-      indicatorColor: randomColorScheme.primary,
-      scaffoldBackgroundColor: randomColorScheme.background,
-      secondaryHeaderColor: randomColorScheme.secondary,
-      shadowColor: randomColorScheme.shadow,
-      splashColor: randomColorScheme.primary.withOpacity(0.12),
-      unselectedWidgetColor: randomColorScheme.onSurface.withOpacity(0.38),
+  void randomizeTheme() {
+    // Generate a random color scheme
+    final randomScheme = randomColorScheme(
+      isDark: state.isDark,
     );
-    themeChanged(theme);
+
+    // Update the theme with the new random color scheme
+    final randomTheme = ThemeData.from(colorScheme: randomScheme);
+
+    // Generate a random font
+    final fonts = GoogleFonts.asMap().keys.toList();
+    final randomFont = fonts[Random().nextInt(fonts.length)];
+
+    final textTheme = GoogleFonts.getFont(randomFont).apply(
+      // bodyColor: randomScheme.onBackground,
+      // displayColor: randomScheme.onBackground,
+    );
+
+    // Update the theme with the random font
+    final themedWithFont = randomTheme.copyWith(textTheme: textTheme);
+
+    themeChanged(themedWithFont);
   }
 }
